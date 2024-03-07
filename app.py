@@ -24,7 +24,7 @@ def get_pokemon_type(name):
         str: Tipo do Pokémon ou None se não encontrado.
     """
     for type_name, pokemon_list in pokemon_types.items():
-        if name in pokemon_list:
+        if name in pokemon_list:git
             return type_name
     return None
 
@@ -139,7 +139,7 @@ def get_random_pokemon_by_letter_and_weather_endpoint(temperature):
     if pokemon:
         return jsonify({'temperature': temperature, 'pokemon': pokemon}), 200
     else:
-        return jsonify({'error': 'No Pokémon found with specified criteria!'}), 404
+        return jsonify({'error': 'Nenhum Pokémon encontrado com os critérios especificados!'}), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
