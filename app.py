@@ -7,13 +7,22 @@ app = Flask(__name__)
 pokemon_types = {
     'fogo': ['Charmander', 'Vulpix', 'Growlithe'],
     'agua': ['Squirtle', 'Psyduck', 'Magikarp'],
-    'flora': ['Bulbasaur', 'Oddish', 'Bellsprout'],
+    'planta': ['Bulbasaur', 'Oddish', 'Bellsprout'],
     'eletrico': ['Pikachu', 'Voltorb', 'Electabuzz'],
     'normal': ['Rattata', 'Meowth', 'Eevee']
 }
 
 # Função para obter o tipo de um Pokémon pelo nome
 def get_pokemon_type(name):
+    """
+    Retorna o tipo de um Pokémon dado seu nome.
+
+    Args:
+        name (str): Nome do Pokémon.
+
+    Returns:
+        str: Tipo do Pokémon ou None se não encontrado.
+    """
     for type_name, pokemon_list in pokemon_types.items():
         if name in pokemon_list:
             return type_name
@@ -21,6 +30,15 @@ def get_pokemon_type(name):
 
 # Função para obter um Pokémon aleatório de um tipo específico
 def get_random_pokemon_by_type(type):
+    """
+    Retorna um Pokémon aleatório de um tipo específico.
+
+    Args:
+        type (str): Tipo do Pokémon.
+
+    Returns:
+        str: Nome do Pokémon aleatório ou None se não encontrado.
+    """
     pokemon_list = pokemon_types.get(type, [])
     if pokemon_list:
         return random.choice(pokemon_list)
@@ -28,6 +46,15 @@ def get_random_pokemon_by_type(type):
 
 # Função para obter o Pokémon com o nome mais longo de um determinado tipo
 def get_longest_name_pokemon_by_type(type):
+    """
+    Retorna o Pokémon com o nome mais longo de um determinado tipo.
+
+    Args:
+        type (str): Tipo do Pokémon.
+
+    Returns:
+        str: Nome do Pokémon com o nome mais longo ou None se não encontrado.
+    """
     pokemon_list = pokemon_types.get(type, [])
     if pokemon_list:
         longest_name_pokemon = max(pokemon_list, key=len)
@@ -36,10 +63,19 @@ def get_longest_name_pokemon_by_type(type):
 
 # Função para obter um Pokémon aleatório com letras específicas no nome e do tipo mais forte com base no clima
 def get_random_pokemon_by_letter_and_weather(temperature):
+    """
+    Retorna um Pokémon aleatório com letras específicas no nome e do tipo mais forte com base no clima.
+
+    Args:
+        temperature (int): Temperatura atual.
+
+    Returns:
+        str: Nome do Pokémon aleatório ou None se não encontrado.
+    """
     if temperature >= 30:
         weather_type = 'fogo'
     elif temperature >= 20:
-        weather_type = 'flora'
+        weather_type = 'planta'
     elif temperature >= 10:
         weather_type = 'normal'
     elif temperature >= 0:
