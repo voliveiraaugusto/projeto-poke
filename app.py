@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 # Dados simulados dos tipos de Pokémon
 pokemon_types = {
-    'fire': ['Charmander', 'Vulpix', 'Growlithe'],
-    'water': ['Squirtle', 'Psyduck', 'Magikarp'],
-    'grass': ['Bulbasaur', 'Oddish', 'Bellsprout'],
-    'electric': ['Pikachu', 'Voltorb', 'Electabuzz'],
+    'fogo': ['Charmander', 'Vulpix', 'Growlithe'],
+    'agua': ['Squirtle', 'Psyduck', 'Magikarp'],
+    'flora': ['Bulbasaur', 'Oddish', 'Bellsprout'],
+    'eletrico': ['Pikachu', 'Voltorb', 'Electabuzz'],
     'normal': ['Rattata', 'Meowth', 'Eevee']
 }
 
@@ -37,13 +37,13 @@ def get_longest_name_pokemon_by_type(type):
 # Função para obter um Pokémon aleatório com letras específicas no nome e do tipo mais forte com base no clima
 def get_random_pokemon_by_letter_and_weather(temperature):
     if temperature >= 30:
-        weather_type = 'fire'
+        weather_type = 'fogo'
     elif temperature >= 20:
-        weather_type = 'grass'
+        weather_type = 'flora'
     elif temperature >= 10:
         weather_type = 'normal'
     elif temperature >= 0:
-        weather_type = 'water'
+        weather_type = 'agua'
     else:
         weather_type = 'ice'
     
